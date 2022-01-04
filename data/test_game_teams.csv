@@ -1,0 +1,23 @@
+game_id,team_id,HoA,result,settled_in,head_coach,goals,shots,tackles,pim,powerPlayOpportunities,powerPlayGoals,faceOffWinPercentage,giveaways,takeaways
+2012030221,3,away,LOSS,OT,John Tortorella,2,8,44,8,3,0,44.8,17,7
+2012030221,6,home,WIN,OT,Claude Julien,3,12,51,6,4,1,55.2,4,5
+2012030222,3,away,LOSS,REG,John Tortorella,2,9,33,11,5,0,51.7,1,4
+2012030222,6,home,WIN,REG,Claude Julien,3,8,36,19,1,0,48.3,16,6
+2012030223,6,away,WIN,REG,Claude Julien,2,8,28,6,0,0,61.8,10,7
+2012030223,3,home,LOSS,REG,John Tortorella,1,6,37,2,2,0,38.2,7,9
+2012030224,6,away,WIN,OT,Claude Julien,3,10,24,8,4,2,53.7,8,6
+2012030224,3,home,LOSS,OT,John Tortorella,2,8,40,8,4,1,46.3,9,7
+2012030225,3,away,LOSS,REG,John Tortorella,1,7,25,13,2,1,50.9,5,3
+2012030225,6,home,WIN,REG,Claude Julien,3,8,35,11,3,1,49.1,12,9
+2012030311,6,away,WIN,REG,Claude Julien,3,7,19,17,4,0,66.7,1,5
+2012030311,5,home,LOSS,REG,Dan Bylsma,0,7,34,28,4,0,33.3,8,9
+2012030312,6,away,WIN,REG,Claude Julien,4,7,19,6,1,0,50.9,2,5
+2012030312,5,home,LOSS,REG,Dan Bylsma,1,6,37,4,2,0,49.1,12,5
+2012030313,5,away,LOSS,OT,Dan Bylsma,1,13,46,16,6,0,57.3,8,10
+2012030313,6,home,WIN,OT,Claude Julien,2,10,34,18,5,0,42.7,10,13
+2012030314,5,away,LOSS,REG,Dan Bylsma,0,6,33,8,3,0,47.5,8,1
+2012030314,6,home,WIN,REG,Claude Julien,1,6,25,8,3,0,52.5,11,5
+2012030231,17,away,LOSS,REG,Mike Babcock,1,5,43,10,3,0,52.5,6,4
+2012030231,16,home,WIN,REG,Joel Quenneville,2,10,24,10,3,1,47.5,2,11
+2012030232,17,away,WIN,REG,Mike Babcock,2,7,26,6,4,0,55.4,6,6
+2012030232,16,home,LOSS,REG,Joel Quenneville,1,5,36,10,2,0,44.6,7,9
