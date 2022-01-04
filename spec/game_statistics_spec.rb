@@ -16,8 +16,7 @@ RSpec.describe GameStatistics do
     @stat_tracker = StatTracker.from_csv(locations)
   end
   it "exists" do
-
-  expect(@stat_tracker).to be_an_instance_of StatTracker
+    expect(@stat_tracker).to be_instance_of(StatTracker)
   end
 
   it "finds highest total score" do

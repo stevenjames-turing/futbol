@@ -16,10 +16,7 @@ RSpec.describe StatTracker do
   end
 
   it "exists" do
-    expect(@stat_tracker).to be_an_instance_of StatTracker
+    expect(@stat_tracker).to be_instance_of(StatTracker)
   end
 
-  #xit "#highest_total_score" do
-#    expect(@stat_tracker.highest_total_score).to eq 11
-#  end
 end
