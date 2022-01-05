@@ -1,0 +1,23 @@
+game_id,season,type,date_time,away_team_id,home_team_id,away_goals,home_goals,venue,venue_link
+2012030221,20122013,Postseason,5/16/13,3,6,2,3,Toyota Stadium,/api/v1/venues/null
+2012030222,20122013,Postseason,5/19/13,3,6,2,3,Toyota Stadium,/api/v1/venues/null
+2012030223,20122013,Postseason,5/21/13,6,3,2,1,BBVA Stadium,/api/v1/venues/null
+2012030224,20122013,Postseason,5/23/13,6,3,3,2,BBVA Stadium,/api/v1/venues/null
+2012030225,20122013,Postseason,5/25/13,3,6,1,3,Toyota Stadium,/api/v1/venues/null
+2012030311,20122013,Postseason,6/2/13,6,5,3,0,Children's Mercy Park,/api/v1/venues/null
+2012030312,20122013,Postseason,6/4/13,6,5,4,1,Children's Mercy Park,/api/v1/venues/null
+2012030313,20122013,Postseason,6/6/13,5,6,1,2,Toyota Stadium,/api/v1/venues/null
+2012030314,20122013,Postseason,6/8/13,5,6,0,1,Toyota Stadium,/api/v1/venues/null
+2012030231,20122013,Postseason,5/16/13,17,16,1,2,Gillette Stadium,/api/v1/venues/null
+2012030232,20122013,Postseason,5/18/13,17,16,2,1,Gillette Stadium,/api/v1/venues/null
+2012030233,20122013,Postseason,5/20/13,16,17,1,3,Dignity Health Sports Park,/api/v1/venues/null
+2012030234,20122013,Postseason,5/24/13,16,17,0,2,Dignity Health Sports Park,/api/v1/venues/null
+2012030235,20122013,Postseason,5/26/13,17,16,1,2,Gillette Stadium,/api/v1/venues/null
+2012030236,20122013,Postseason,5/28/13,16,17,2,3,Dignity Health Sports Park,/api/v1/venues/null
+2012030237,20122013,Postseason,5/30/13,17,16,1,2,Gillette Stadium,/api/v1/venues/null
+2012030121,20122013,Postseason,5/2/13,9,8,2,2,Red Bull Arena,/api/v1/venues/null
+2012030122,20122013,Postseason,5/3/13,9,8,1,3,Red Bull Arena,/api/v1/venues/null
+2012030123,20122013,Postseason,5/5/13,8,9,1,4,Yankee Stadium,/api/v1/venues/null
+2012030124,20122013,Postseason,5/7/13,8,9,2,3,Yankee Stadium,/api/v1/venues/null
+2012030125,20122013,Postseason,5/9/13,9,8,4,1,Red Bull Arena,/api/v1/venues/null
+2012030151,20122013,Postseason,5/1/13,30,16,1,2,Gillette Stadium,/api/v1/venues/null
