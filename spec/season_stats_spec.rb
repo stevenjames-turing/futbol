@@ -45,5 +45,9 @@ RSpec.describe SeasonStats do
         expect(stat_tracker.most_tackles()).to eq()
       end
     end
-    
+    describe '#fewest_tackles' do
+      it 'returns the name of the Team with the most tackles in the season' do
+        expect(stat_tracker.fewest_tackles()).to eq()
+      end
+    end
   end
