@@ -27,14 +27,22 @@ RSpec.describe SeasonStats do
         expect(stat_tracker.worst_coach()).to eq()
       end
     end
+
     describe '#most_accurate_team' do
     it 'returns the name of the Team with the best ration of shots to goals for the season' do
       expect(stat_tracker.most_accurate_team()).to eq()
       end
     end
+
     describe '#least_accurate_team' do
       it 'returns the name of the Team with the most ration of shots to goals for the season' do
         expect(stat_tracker.least_accurate_team()).to eq()
+      end
+    end
+
+    describe '#most_tackles' do
+      it 'returns the name of the Team with the most tackles in the season' do
+        expect(stat_tracker.most_tackles()).to eq()
       end
     end
     
