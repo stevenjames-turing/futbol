@@ -21,4 +21,11 @@ RSpec.describe SeasonStats do
        expect(stat_tracker.winningest_coach()).to eq()
       end
     end
+
+    describe '#worst_coach' do
+      it 'returns the name of the Coach with the worst win percentage for the season' do
+        expect(stat_tracker.worst_coach()).to eq()
+      end
+    end
+    
   end
