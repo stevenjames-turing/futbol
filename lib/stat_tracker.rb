@@ -6,7 +6,11 @@ class StatTracker
 
   def initialize(paths)
     @paths = paths
-    
+    @games = @paths[:games]
+    @teams = @paths[:teams]
+    @game_teams = @paths[:game_teams]
+
+
   end
 
   def self.from_csv(location)
@@ -15,6 +19,23 @@ class StatTracker
 
   #calls method in game stats, passes games location to be accessed
   def highest_total_score
-    GameStatistics.highest_total_score(@paths[:games])
+    GameStatistics.highest_total_score(@games)
   end
+
+  def lowest_total_score
+    GameStatistics.lowest_total_score(@games)
+  end
+
+  def percentage_home_wins
+    GameStatistics.percentage_home_wins(@games)
+  end
+
+  def percentage_visitor_wins
+    GameStatistics.percentage_visitor_wins(@games)
+  end
+
+  def percentage_ties
+    GameStatistics.percentage_ties(@games)
+  end
+
 end
