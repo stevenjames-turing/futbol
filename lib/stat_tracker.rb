@@ -1,12 +1,15 @@
 #files sent to from_csv from runner. from_csv creates new object with hash containing file locations
 require "./lib/game_statistics.rb"
+require "./lib/season_stats.rb"
 include GameStatistics
+include SeasonStats
 class StatTracker
+
 
 
   def initialize(paths)
     @paths = paths
-    
+
   end
 
   def self.from_csv(location)
