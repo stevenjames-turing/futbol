@@ -1,10 +1,11 @@
 require './lib/stat_tracker.rb'
 
 RSpec.describe StatTracker do
+  include TeamStatistics
   before(:all) do
-    game_path = './data/games.csv'
-    team_path = './data/teams.csv'
-    game_teams_path = './data/game_teams.csv'
+    game_path = './data/test_games.csv'
+    team_path = './data/test_teams.csv'
+    game_teams_path = './data/test_game_teams.csv'
 
     locations = {
       games: game_path,
@@ -19,4 +20,11 @@ RSpec.describe StatTracker do
     expect(@stat_tracker).to be_instance_of(StatTracker)
   end
 
+  it 'can load team data' do
+    expect(@stat_tracker.load_team_data).to_not eq(false)
+  end
+
+  it 'can count the number of teams' do
+    expect(@stat_tracker.team_count).to eq(32)
+  end
 end
