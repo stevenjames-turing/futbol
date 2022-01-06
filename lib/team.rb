@@ -1,18 +1,19 @@
 require 'csv'
-puts 'team initialized'
+class Team
 
-contents = CSV.open(
-  'data/teams.csv',
-  headers: true,
-  header_converters: :symbol
-)
+attr_reader :team_id,
+            :franchiseid,
+            :teamname,
+            :abbreviation,
+            :stadium,
+            :link
 
-contents.each do |row|
-  team_id = row[:team_id]
-  franchise_id = row[:franchiseid]
-  name = row[:teamname]
-  abbreviation = row[:abbreviation]
-  stadium = row[:stadium]
-  link = row[:link]
-  puts link
+  def initialize(info)
+    @team_id = info[:team_id].to_i
+    @franchiseid = info[:franchiseid]
+    @teamname = info[:teamname]
+    @abbreviation = info[:abbreviation]
+    @stadium = info[:stadium]
+    @link = info[:link]
+  end
 end
