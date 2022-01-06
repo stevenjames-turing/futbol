@@ -93,5 +93,17 @@ module LeagueStats
     highest_scoring_visitor
   end
 
+  def highest_scoring_home_team(games_data, teams_data)
+    highest_home = 0
+    highest_scoring_home = nil
+    goal_data_by_team(games_data, teams_data).each_pair do |team, data|
+      if data[:avg_goals_per_game_home] > highest_home
+        highest_home = data[:avg_goals_per_game_home]
+        highest_scoring_home = data[:team_name]
+      end
+    end
+    highest_scoring_home
+  end
+
   
 end
