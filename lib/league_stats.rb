@@ -81,5 +81,17 @@ module LeagueStats
     worst_offense
   end
 
+  def highest_scoring_visitor(games_data, teams_data)
+    highest_away = 0
+    highest_scoring_visitor = nil
+    goal_data_by_team(games_data, teams_data).each_pair do |team, data|
+      if data[:avg_goals_per_game_away] > highest_away
+        highest_away = data[:avg_goals_per_game_away]
+        highest_scoring_visitor = data[:team_name]
+      end
+    end
+    highest_scoring_visitor
+  end
+
   
 end
