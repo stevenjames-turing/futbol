@@ -56,4 +56,18 @@ module LeagueStats
     end
     goals_per_team
   end
+
+  def best_offense(games_data, teams_data)
+    best_offense = nil
+    highest_average = 0
+    goal_data_by_team(games_data, teams_data).each_pair do |team, data|
+      if data[:avg_goals_per_game_total] >= highest_average
+        highest_average = data[:avg_goals_per_game_total]
+        (best_offense = data[:team_name])
+      end
+    end
+    best_offense
+  end
+
+  
 end
