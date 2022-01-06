@@ -69,5 +69,17 @@ module LeagueStats
     best_offense
   end
 
+  def worst_offense(games_data, teams_data)
+    worst_offense = nil
+    lowest_average = 100
+    goal_data_by_team(games_data, teams_data).each_pair do |team, data|
+      if data[:avg_goals_per_game_total] < lowest_average
+        lowest_average = data[:avg_goals_per_game_total]
+        (worst_offense = data[:team_name])
+      end
+    end
+    worst_offense
+  end
+
   
 end
