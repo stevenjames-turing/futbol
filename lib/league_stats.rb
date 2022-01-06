@@ -117,5 +117,15 @@ module LeagueStats
     lowest_scoring_visitor
   end
 
-
+  def lowest_scoring_home_team(games_data, teams_data)
+    lowest_home = 100
+    lowest_scoring_home = nil
+    goal_data_by_team(games_data, teams_data).each_pair do |team, data|
+      if data[:avg_goals_per_game_home] < lowest_home
+        lowest_home = data[:avg_goals_per_game_home]
+        lowest_scoring_home = data[:team_name]
+      end
+    end
+    lowest_scoring_home
+  end
 end
