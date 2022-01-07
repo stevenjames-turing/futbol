@@ -5,6 +5,7 @@ require_relative './stats_data'
 require_relative './team'
 require_relative './team_statistics'
 
+
 class StatTracker
   include GameStatistics
   include LeagueStats
