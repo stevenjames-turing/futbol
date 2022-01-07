@@ -20,11 +20,11 @@ RSpec.describe StatTracker do
     expect(@stat_tracker).to be_instance_of(StatTracker)
   end
 
-  it 'can load team data' do
+  xit 'can load team data' do
     expect(@stat_tracker.make_teams).to_not eq(false)
   end
 
-  it 'can count the number of teams' do
+  xit 'can count the number of teams' do
     expect(@stat_tracker.team_count).to eq(32)
   end
 end
