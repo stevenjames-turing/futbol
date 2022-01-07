@@ -3,8 +3,8 @@ require_relative './team'
 module TeamStatistics
 
   def team_info(team_id)
-    teams_data = CSV.read @teams, headers: true, header_converters: :symbol
-    team_info_full = teams_data.find do |row|
+    # teams_data = CSV.read @teams, headers: true, header_converters: :symbol
+    team_info_full = @teams.find do |row|
       row[:team_id].to_i == team_id
     end
     team_info = {
