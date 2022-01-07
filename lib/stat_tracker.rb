@@ -4,8 +4,9 @@ require "./lib/game_statistics.rb"
 require './lib/league_stats'
 require './lib/stats_data'
 require_relative './team'
+require_relative './game'
+require_relative './game_team'
 require_relative './team_statistics'
-
 
 class StatTracker
   include GameStatistics
