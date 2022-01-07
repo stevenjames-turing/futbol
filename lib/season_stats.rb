@@ -1,4 +1,5 @@
 require 'csv'
+# require './lib/game_teams.rb'
 module SeasonStats
 
   def game_teams_by_coaches(season)
@@ -14,7 +15,7 @@ module SeasonStats
   end
 
   def winningest_coach(season)
-    average_wins_by_coach(season_id).max_by{|coach, average_wins| average_wins}[0]
+    average_wins_by_coach(season).max_by{|coach, average_wins| average_wins}[0]
   end
 
 
@@ -35,5 +36,15 @@ module SeasonStats
       game_teams_by_team.each do |team_id, game_teams|
         accuracy= accuracy(game_teams)
         accuracy_hash[team_id] = accuracy
+      end
+
+      def least_accurate_team(season)
+        games_teams_in_season = games_teams_in_season(season)
+        games_team_by_team = games_teams_in_season.group_by{|game_team| game_team.team_id}
+        accuracy_hash = Hash.new()
+        game_teams_by_team.each do |team_id, game_teams|
+          accuracy= accuracy(game_teams)
+          accuracy_hash[team_id] = accuracy
+        end 
 
   end

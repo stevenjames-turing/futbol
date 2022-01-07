@@ -6,7 +6,13 @@ class GameTeam
               :head_coach,
               :goals,
               :shots,
-              :tackles
+              :tackles,
+              :pim,
+              :power_play_opportunites,
+              :power_play_goals,
+              :face_off_win_percentage,
+              :giveaways,
+              :takeaways
 
   def initialize(info)
     @game_id = info['game_id']
