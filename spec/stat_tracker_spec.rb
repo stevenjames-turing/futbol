@@ -4,15 +4,15 @@ require './lib/stat_tracker'
 
 RSpec.describe StatTracker do
   include TeamStatistics
-  before(:all) do
+  # before(:all) do
+  #   game_path = './data/test_games.csv'
+  #   team_path = './data/test_teams.csv'
+  #   game_teams_path = './data/test_game_teams.csv'
+  # end
+  it "exists" do
     game_path = './data/test_games.csv'
     team_path = './data/test_teams.csv'
     game_teams_path = './data/test_game_teams.csv'
-
-  it "exists" do
-    game_path = './data/games.csv'
-    team_path = './data/teams.csv'
-    game_teams_path = './data/game_teams.csv'
 
     locations = {
       games: game_path,
@@ -24,9 +24,9 @@ RSpec.describe StatTracker do
   end
 
   it 'can count the number of teams in the data' do
-    game_path = './data/games.csv'
-    team_path = './data/teams.csv'
-    game_teams_path = './data/game_teams.csv'
+    game_path = './data/test_games.csv'
+    team_path = './data/test_teams.csv'
+    game_teams_path = './data/test_game_teams.csv'
     locations = {
       games: game_path,
       teams: team_path,
@@ -49,10 +49,10 @@ RSpec.describe StatTracker do
     expect(stat_tracker.goal_data_by_team.values_at("3")[0].keys).to eq(expected_data_as_keys)
   end
 
-  it 'can return the name of the team with the HIGHEST average number of goals scored per game across all seasons' do
-    game_path = './data/games.csv'
-    team_path = './data/teams.csv'
-    game_teams_path = './data/game_teams.csv'
+  xit 'can return the name of the team with the HIGHEST average number of goals scored per game across all seasons' do
+    game_path = './data/test_games.csv'
+    team_path = './data/test_teams.csv'
+    game_teams_path = './data/test_game_teams.csv'
     locations = {
       games: game_path,
       teams: team_path,
@@ -61,10 +61,10 @@ RSpec.describe StatTracker do
     expect(stat_tracker.best_offense).to eq("Reign FC")
   end
 
-  it 'can return the name of the team with the LOWEST average number of goals scored per game across all seasons' do
-    game_path = './data/games.csv'
-    team_path = './data/teams.csv'
-    game_teams_path = './data/game_teams.csv'
+  xit 'can return the name of the team with the LOWEST average number of goals scored per game across all seasons' do
+    game_path = './data/test_games.csv'
+    team_path = './data/test_teams.csv'
+    game_teams_path = './data/test_game_teams.csv'
     locations = {
       games: game_path,
       teams: team_path,
@@ -74,9 +74,9 @@ RSpec.describe StatTracker do
   end
 
   it 'can return the name of the team with the HIGHEST average score per game across all seasons when they are away' do
-    game_path = './data/games.csv'
-    team_path = './data/teams.csv'
-    game_teams_path = './data/game_teams.csv'
+    game_path = './data/test_games.csv'
+    team_path = './data/test_teams.csv'
+    game_teams_path = './data/test_game_teams.csv'
     locations = {
       games: game_path,
       teams: team_path,
@@ -85,10 +85,10 @@ RSpec.describe StatTracker do
     expect(stat_tracker.highest_scoring_visitor).to eq("FC Dallas")
   end
 
-  it 'can return the name of the team with the HIGHEST average score per game across all seasons when they are home' do
-    game_path = './data/games.csv'
-    team_path = './data/teams.csv'
-    game_teams_path = './data/game_teams.csv'
+  xit 'can return the name of the team with the HIGHEST average score per game across all seasons when they are home' do
+    game_path = './data/test_games.csv'
+    team_path = './data/test_teams.csv'
+    game_teams_path = './data/test_game_teams.csv'
     locations = {
       games: game_path,
       teams: team_path,
@@ -97,10 +97,10 @@ RSpec.describe StatTracker do
     expect(stat_tracker.highest_scoring_home_team).to eq("Reign FC")
   end
 
-  it 'can return the name of the team with the LOWEST average score per game across all seasons when they are a visitor' do
-    game_path = './data/games.csv'
-    team_path = './data/teams.csv'
-    game_teams_path = './data/game_teams.csv'
+  xit 'can return the name of the team with the LOWEST average score per game across all seasons when they are a visitor' do
+    game_path = './data/test_games.csv'
+    team_path = './data/test_teams.csv'
+    game_teams_path = './data/test_game_teams.csv'
     locations = {
       games: game_path,
       teams: team_path,
@@ -109,10 +109,10 @@ RSpec.describe StatTracker do
       expect(stat_tracker.lowest_scoring_visitor).to eq("San Jose Earthquakes")
     end
 
-  it 'can return the name of the team with the LOWEST average score per game across all seasons when they are home' do
-    game_path = './data/games.csv'
-    team_path = './data/teams.csv'
-    game_teams_path = './data/game_teams.csv'
+  xit 'can return the name of the team with the LOWEST average score per game across all seasons when they are home' do
+    game_path = './data/test_games.csv'
+    team_path = './data/test_teams.csv'
+    game_teams_path = './data/test_game_teams.csv'
     locations = {
       games: game_path,
       teams: team_path,
