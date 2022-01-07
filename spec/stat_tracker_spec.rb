@@ -3,10 +3,11 @@ SimpleCov.start
 require './lib/stat_tracker'
 
 RSpec.describe StatTracker do
-  # before(:each) do
-  #
-  #   stat_tracker = StatTracker.from_csv(locations)
-  # end
+  include TeamStatistics
+  before(:all) do
+    game_path = './data/test_games.csv'
+    team_path = './data/test_teams.csv'
+    game_teams_path = './data/test_game_teams.csv'
 
   it "exists" do
     game_path = './data/games.csv'
