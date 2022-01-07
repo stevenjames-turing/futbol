@@ -1,6 +1,5 @@
 #files sent to from_csv from runner. from_csv creates new object with hash containing file locations
 require "./lib/game_statistics.rb"
-
 require './lib/league_stats'
 require './lib/stats_data'
 require_relative './team'
