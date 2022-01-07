@@ -13,7 +13,7 @@ class StatTracker
 
   def initialize(filenames)
     @games = filenames[:games]
-    @teams = filenames[:teams]
+    @teams = CSV.read filenames[:teams], headers: true, header_converters: :symbol
     @game_teams = filenames[:game_teams]
     # @teams = make_teams(filenames)
   end
