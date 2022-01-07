@@ -6,7 +6,6 @@ require './lib/stats_data'
 require_relative './team'
 require_relative './team_statistics'
 
-
 class StatTracker
   include GameStatistics
   include LeagueStats
@@ -20,5 +19,13 @@ class StatTracker
   #calls method in game stats, passes games location to be accessed
   def highest_total_score
     GameStatistics.highest_total_score(@games_data)
+  end
+
+  def percentage_visitor_wins
+    GameStatistics.percentage_visitor_wins(@games)
+  end
+
+  def percentage_ties
+    GameStatistics.percentage_ties(@games)
   end
 end
