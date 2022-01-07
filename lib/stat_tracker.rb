@@ -7,9 +7,24 @@ class StatTracker
   include GameStatistics
   include TeamStatistics
 
+  attr_reader :games,
+              :teams,
+              :game_teams
 
-  def initialize(paths)
-    @paths = paths
+  def initialize(filenames)
+    @games = filenames[:games]
+    @teams = filenames[:teams]
+    @game_teams = filenames[:game_teams]
+    # @teams = make_teams(filenames)
+  end
+
+  def make_teams(filenames)
+    teams = []
+    CSV.foreach(filenames[:teams], headers: true, header_converters: :symbol) do |row|
+      teams << Team.new(row)
+    end
+    teams
+    require "pry"; binding.pry
   end
 
   def self.from_csv(location)
