@@ -17,8 +17,8 @@ RSpec.describe GameTeam do
       tackles: "51",
       pim: "6",
       powerplayopportunities: "4",
-      powerPlayGoals: "1",
-      faceOffWinPercentage: "55.2",
+      powerplaygoals: "1",
+      faceoffwinwercentage: "55.2",
       giveaways: "4",
       takeaways: "5"
     }
