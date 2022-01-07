@@ -21,7 +21,7 @@ RSpec.describe StatTracker do
   end
 
   it 'can load team data' do
-    expect(@stat_tracker.load_team_data).to_not eq(false)
+    expect(@stat_tracker.make_teams).to_not eq(false)
   end
 
   it 'can count the number of teams' do
