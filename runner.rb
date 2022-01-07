@@ -23,5 +23,6 @@ p stat_tracker.highest_scoring_visitor
 p stat_tracker.highest_scoring_home_team
 p stat_tracker.lowest_scoring_visitor
 p stat_tracker.lowest_scoring_home_team
+p stat_tracker.team_info("5")
 
 require 'pry'; binding.pry
