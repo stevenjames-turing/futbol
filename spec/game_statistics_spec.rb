@@ -24,13 +24,25 @@ RSpec.describe GameStatistics do
   expect(@stat_tracker.highest_total_score).to be_instance_of(Integer)
   end
 
-#  xit "finds lowest total score" do
+  it "finds lowest total score" do
 
-  #expect(@stat_tracker.lowest_total_score).to be_instance_of(Integer)
-  #end
+  expect(@stat_tracker.lowest_total_score).to be_instance_of(Integer)
+  end
 
-#  xit "finds percentage home wins" do
+  it "finds percentage home wins" do
 
-#expect(@stat_tracker.percentage_home_wins).to be_instance_of(Float)
-  #end
+  expect(@stat_tracker.percentage_home_wins).to be_instance_of(Float)
+  end
+
+  it "finds percentage visitor wins" do
+    expect(@stat_tracker.percentage_visitor_wins).to be_instance_of(Float)
+  end
+
+  it "finds percentage ties" do
+    expect(@stat_tracker.percentage_visitor_wins).to be_instance_of(Float)
+  end
+
+  #it "#percentage_home_wins" do
+  #  expect(@stat_tracker.percentage_home_wins).to eq 0.44
+#  end
 end
