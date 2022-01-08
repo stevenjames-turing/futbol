@@ -2,7 +2,7 @@ require 'simplecov'
 SimpleCov.start
 require './lib/stat_tracker'
 require './lib/team_statistics'
-require './lib/team'
+# require './lib/team'
 
 RSpec.describe TeamStatistics do
   before(:all) do
@@ -21,13 +21,17 @@ RSpec.describe TeamStatistics do
 
   it '#team_info' do
     info = {
-      team_id: 26,
+      team_id: "26",
       franchise_id: "14",
       team_name: "FC Cincinnati",
       abbreviation: "CIN",
       link: "/api/v1/teams/26"
     }
-    expect(@stat_tracker.team_info(26)).to eq(info)
+    expect(@stat_tracker.team_info("26")).to eq(info)
   end
 
+  it '#best_season' do
+
+    expect(@stat_tracker.best_season("6")).to eq("20122013")
+  end
 end
