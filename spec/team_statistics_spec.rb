@@ -31,6 +31,7 @@ RSpec.describe TeamStatistics do
   end
 
   it '#best_season' do
-    expect(@stat_tracker.team_win?("2012030221", "6")).to eq(true)
+
+    expect(@stat_tracker.best_season("6")).to eq("20122013")
   end
 end
