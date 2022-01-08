@@ -1,7 +1,3 @@
-# require_relative './team'
-# require_relative './game'
-# require_relative './game_team'
-
 module TeamStatistics
 
   def team_info(team_id)
@@ -17,9 +13,9 @@ module TeamStatistics
     team_info
   end
 
-  def team_win?(team_id, game_id)
-    require "pry"; binding.pry
-    
-  end
+  def best_season(team_id)
+    x = Hash.new
 
+    require "pry"; binding.pry
+  end
 end
