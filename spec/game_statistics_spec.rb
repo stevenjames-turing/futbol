@@ -42,7 +42,8 @@ RSpec.describe GameStatistics do
     expect(@stat_tracker.percentage_visitor_wins).to be_instance_of(Float)
   end
 
-  #it "#percentage_home_wins" do
-  #  expect(@stat_tracker.percentage_home_wins).to eq 0.44
+  it "finds games per season" do
+    expect(@stat_tracker.count_of_games_by_season).to be_instance_of(Hash)
+  end
 #  end
 end
