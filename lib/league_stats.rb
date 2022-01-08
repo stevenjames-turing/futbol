@@ -11,7 +11,7 @@ module LeagueStats
     goals_per_team = {}
     # gets all goal data from games.csv
     @games_data.each do |row|
-      if !goals_per_team.has_key?(row[:away_team_id])
+      if !goals_per_team.has_key?(row.away_team_id)
         goals_per_team[row[:away_team_id]] = {team_name: nil,
           goals_while_away: row[:away_goals].to_i,
           goals_while_home: 0,
@@ -125,18 +125,4 @@ module LeagueStats
     end
     lowest_scoring_home
   end
-
-  # Method for TeamStats for Sam
-  # def team_info(team_id)
-  #   team_info_full = @teams_data.find do |row|
-  #     row[:team_id] == team_id
-  #   end
-  #   team_info = {
-  #     team_id: team_info_full[:team_id],
-  #     franchise_id: team_info_full[:franchiseid],
-  #     team_name: team_info_full[:teamname],
-  #     abbreviation: team_info_full[:abbreviation],
-  #     link: team_info_full[:link]}
-  #   team_info
-  # end
 end
