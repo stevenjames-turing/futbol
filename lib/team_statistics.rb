@@ -1,5 +1,3 @@
-require_relative './team'
-
 module TeamStatistics
 
   def team_info(team_id)
@@ -13,5 +11,11 @@ module TeamStatistics
       abbreviation: team_info_full[:abbreviation],
       link: team_info_full[:link]}
     team_info
+  end
+
+  def best_season(team_id)
+    x = Hash.new
+
+    require "pry"; binding.pry
   end
 end

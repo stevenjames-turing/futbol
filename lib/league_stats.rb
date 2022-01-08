@@ -11,7 +11,7 @@ module LeagueStats
     goals_per_team = {}
     # gets all goal data from games.csv
     @games_data.each do |row|
-      if !goals_per_team.has_key?(row[:away_team_id])
+      if !goals_per_team.has_key?(row.away_team_id)
         goals_per_team[row[:away_team_id]] = {team_name: nil,
           goals_while_away: row[:away_goals].to_i,
           goals_while_home: 0,
