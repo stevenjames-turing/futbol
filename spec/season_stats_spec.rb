@@ -12,7 +12,7 @@ RSpec.describe SeasonStats do
       game_teams: game_teams_path
     }
 
-    @stat_tracker = StatTracker.from_csv(locations)
+    @season_stats = SeasonStats.from_csv(locations)
   end
 
    describe 'SeasonStats module methods' do
@@ -38,6 +38,14 @@ RSpec.describe SeasonStats do
       it 'returns the name of the Team with the most ration of shots to goals for the season' do
         expect(stat_tracker.least_accurate_team()).to eq()
       end
+    end
+
+    it '#games_played_in_season' do
+      expect(stat_tracker.games_played_in_season("20122013")).to be_a(Array)
+    end
+
+    it 'game_stats_by_team_id' do
+      expect(season_stats.game_stats_by_team_id("20122013")).to be_a(Hash)
     end
 
     describe '#most_tackles' do
