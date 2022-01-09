@@ -20,11 +20,11 @@ RSpec.describe TeamStatistics do
 
   it '#team_info' do
     info = {
-      team_id: "26",
-      franchise_id: "14",
-      team_name: "FC Cincinnati",
-      abbreviation: "CIN",
-      link: "/api/v1/teams/26"
+      "team_id" => "26",
+      "franchise_id" => "14",
+      "team_name" => "FC Cincinnati",
+      "abbreviation" => "CIN",
+      "link" => "/api/v1/teams/26"
     }
     expect(@stat_tracker.team_info("26")).to eq(info)
   end
@@ -34,10 +34,9 @@ RSpec.describe TeamStatistics do
   end
 
   it '#worst_season' do
-    expect(@stat_tracker.worst_season())
+    expect(@stat_tracker.worst_season("5")).to eq("20122013")
   end
 
-  end
   it '#average_win_percentage' do
     expect(@stat_tracker.average_win_percentage("16")).to eq(50.0)
   end
