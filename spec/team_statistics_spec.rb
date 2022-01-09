@@ -2,7 +2,6 @@ require 'simplecov'
 SimpleCov.start
 require './lib/stat_tracker'
 require './lib/team_statistics'
-# require './lib/team'
 
 RSpec.describe TeamStatistics do
   before(:all) do
@@ -45,7 +44,7 @@ RSpec.describe TeamStatistics do
     expect(@stat_tracker.fewest_goals_scored("5")).to eq(0)
   end
 
-  xit '#favorite_opponent' do
-
+  it '#favorite_opponent' do
+    expect(@stat_tracker.favorite_opponent("6")).to eq("Houston Dynamo")
   end
 end
