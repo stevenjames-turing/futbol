@@ -47,4 +47,8 @@ RSpec.describe TeamStatistics do
   it '#favorite_opponent' do
     expect(@stat_tracker.favorite_opponent("6")).to eq("Houston Dynamo")
   end
+
+  it 'has a #rival team' do
+    expect(@stat_tracker.rival("3")).to eq("FC Dallas")
+  end
 end
