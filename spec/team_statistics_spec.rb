@@ -31,7 +31,21 @@ RSpec.describe TeamStatistics do
   end
 
   it '#best_season' do
-
     expect(@stat_tracker.best_season("6")).to eq("20122013")
+  end
+
+  it '#average_win_percentage' do
+    expect(@stat_tracker.average_win_percentage("16")).to eq(50.0)
+  end
+  it '#most_goals_scored' do
+    expect(@stat_tracker.most_goals_scored("16")).to eq(2)
+  end
+
+  it '#fewest_goals_scored' do
+    expect(@stat_tracker.fewest_goals_scored("5")).to eq(0)
+  end
+
+  xit '#favorite_opponent' do
+
   end
 end
