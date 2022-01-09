@@ -62,7 +62,22 @@ module TeamStatistics
   end
 
   def favorite_opponent(team_id)
-    require "pry"; binding.pry
+    games_won = @games_data.select do |game|
+      game.home_team_id == team_id && game.home_goals > game.away_goals ||
+      game.away_team_id == team_id && game.away_goals > game.home_goals
+    end
+    opponents = []
+    games_won.select do |game|
+      if game.home_team_id == team_id
+        opponents << game.away_team_id
+      elsif game.away_team_id == team_id
+        opponents << game.home_team_id
+      end
+    end
+    opponent_name = opponents.max_by do |x|
+      x.size
+    end
+    team_info(opponent_name)[:team_name]
   end
 
 
