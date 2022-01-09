@@ -61,6 +61,11 @@ module TeamStatistics
     end.min_by {|team| team.goals}.goals
   end
 
+  def favorite_opponent(team_id)
+    require "pry"; binding.pry
+  end
+
+
   private
   def find_outcome(team_id, desired_result)
     @game_teams_data.select do |x|
