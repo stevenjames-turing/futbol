@@ -58,5 +58,17 @@ module SeasonStats
 
         def game_stats_by_team_id(season)
           games_played_in_season(season).group_by{|game_teams| game_teams.team_id}
-        end 
+        end
+
+        def most_tackles(season)
+          team_tackles_totals = game_stats_by_team_id(season).transfrom_values{|values| values.map{|game_teams| game_teams.tackles.to_i}.inject(:+)}
+          team_id = team_tackles_totals.key(team_tackles_totals.values.max)
+          team_name_from_id(team_id)
+        end
+
+        def most_tackles(season)
+          team_tackles_totals = game_stats_by_team_id(season).transfrom_values{|values| values.map{|game_teams| game_teams.tackles.to_i}.inject(:+)}
+          team_id = team_tackles_totals.key(team_tackles_totals.values.min)
+          team_name_from_id(team_id)
+        end
   end
