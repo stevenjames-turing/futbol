@@ -80,6 +80,24 @@ module TeamStatistics
     team_info(opponent_name)[:team_name]
   end
 
+  def rival(team_id)
+    games_lost = @games_data.select do |game|
+      game.home_team_id == team_id && game.away_goals > game.home_goals ||
+      game.away_team_id == team_id && game.home_goals > game.away_goals
+    end
+    rivals = []
+    games_lost.select do |game|
+      if game.home_team_id == team_id
+        rivals << game.away_team_id
+      elsif game.away_team_id == team_id
+        rivals << game.home_team_id
+      end
+    end
+    rival_name = rivals.max_by do |x|
+      x.size
+    end
+    team_info(rival_name)[:team_name]
+  end
 
   private
   def find_outcome(team_id, desired_result)
