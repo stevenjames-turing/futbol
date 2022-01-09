@@ -22,7 +22,7 @@ class GameTeam
     @result = stats[:result]
     @settled_in = stats[:settled_in]
     @head_coach = stats[:head_coach]
-    @goals = stats[:goals]
+    @goals = stats[:goals].to_i
     @shots = stats[:shots]
     @tackles = stats[:tackles]
     @pim = stats[:pim]
