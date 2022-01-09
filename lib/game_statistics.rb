@@ -80,8 +80,36 @@ module GameStatistics
   end
 
   def average_goals_per_game
+    total_games = 0.0
+    total_goals = 0.0
+    @games_data.each do |row|
+      total_games +=1
+      total_goals = total_goals + ([row[:home_goals]] + [row[:away_goals]])
+    end
+    average_goals_per_game = total_goals / total_games
+  end
+
+  def total_goals_by_season
+    total_goals_by_season = {}
+    @games_data.each do |row|
+      total_goals_by_season[row[:season]] = 0
+    end
+    @games_data.each do |row|
+      total_goals_by_season[row[:season]] += ((row[:away_goals].to_i) + (row[:home_goals].to_i))
+    end
+    return total_goals_by_season
   end
 
   def average_goals_by_season
+    count_of_games_by_season = self.count_of_games_by_season
+    average_goals_by_season = {}
+    @games_data.each do |row|
+      average_goals_by_season[row[:season]] = 0.0
+    end
+    total_goals_by_season = self.total_goals_by_season
+    average_goals_by_season.each do |season|
+      season = (total_goals_by_season[season].to_f / total_goals_by_season[season].to_f)
+    end
+    return average_goals_by_season
   end
 end

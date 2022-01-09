@@ -45,5 +45,12 @@ RSpec.describe GameStatistics do
   it "finds games per season" do
     expect(@stat_tracker.count_of_games_by_season).to be_instance_of(Hash)
   end
-#  end
+
+  it "finds total goals per season" do
+    expect(@stat_tracker.total_goals_by_season).to be_instance_of(Hash)
+  end
+
+  it "finds average goals per season" do
+    expect(@stat_tracker.average_goals_by_season).to be_instance_of(Hash)
+  end
 end
