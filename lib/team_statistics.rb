@@ -18,7 +18,7 @@ module TeamStatistics
     wins = find_outcome(team_id, "WIN")
     wins.each do |win|
       @games_data.each do |game|
-        if (game.game_id == win.game_id) && (game.type == "Postseason")
+        if (game.game_id == win.game_id) #&& (game.type == "Postseason")
           seasons << game.season
         end
       end
@@ -31,7 +31,7 @@ module TeamStatistics
     wins = find_outcome(team_id, "LOSS")
     wins.each do |win|
       @games_data.each do |game|
-        if (game.game_id == win.game_id) && (game.type == "Regular Season")
+        if (game.game_id == win.game_id) #&& (game.type == "Regular Season")
           seasons << game.season
         end
       end
