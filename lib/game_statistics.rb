@@ -42,6 +42,7 @@ module GameStatistics
       end
     end
     percent_home_wins = home_wins/total_games
+    return percent_home_wins.round(2)
   end
 
   def percentage_visitor_wins
@@ -54,6 +55,7 @@ module GameStatistics
       end
     end
     percent_away_wins = away_wins/total_games
+    return percent_away_wins.round(2)
   end
 
   def percentage_ties
@@ -66,6 +68,7 @@ module GameStatistics
       end
     end
     percent_away_wins = ties/total_games
+    return percent_away_wins.round(2)
   end
 
   def count_of_games_by_season #games:season
@@ -84,9 +87,10 @@ module GameStatistics
     total_goals = 0.0
     @games_data.each do |row|
       total_games +=1
-      total_goals = total_goals + ([row[:home_goals]] + [row[:away_goals]])
+      total_goals = total_goals + (row[:home_goals].to_f + row[:away_goals].to_f)
     end
     average_goals_per_game = total_goals / total_games
+    return average_goals_per_game.round(2)
   end
 
   def total_goals_by_season
@@ -107,8 +111,9 @@ module GameStatistics
       average_goals_by_season[row[:season]] = 0.0
     end
     total_goals_by_season = self.total_goals_by_season
-    average_goals_by_season.each do |season|
-      season = (total_goals_by_season[season].to_f / total_goals_by_season[season].to_f)
+    average_goals_by_season.each do |season, goals|
+      average_goals_by_season[season] = (total_goals_by_season[season].to_f / count_of_games_by_season[season].to_f)
+      average_goals_by_season[season] = average_goals_by_season[season].round(2)
     end
     return average_goals_by_season
   end
