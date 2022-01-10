@@ -29,39 +29,39 @@ module SeasonStats
       avg = number_of_games_coached.merge(games_won){|key, games_played, games_won| games_won.to_f / games_played.to_f}
       coach_name = avg.key(avg.values.min)
     end
-
-    def accuracy(game_teams)
-      total_goals = game_teams.map{|game_team| game_team.goals}.sum.to_f
-      total_shots = game_teams.map{|game_team| game_team.shots.to_i}.sum.to_f
-      accuracy = total_goals/total_shots
-    end
-
+    
     def most_accurate_team(season)
-      most_accurate = nil
-      best_accuracy = 0.01
       games_teams_in_season = games_played_in_season(season)
-      games_team_by_team = games_teams_in_season.group_by{|game_team| game_team.team_id}
-      games_team_by_team.each do |team_id, game_teams|
-        team_accuracy = accuracy(game_teams)
-        if team_accuracy >= best_accuracy.to_f
-          (best_accuracy = team_accuracy) && (most_accurate = team_id)
-        end
-      end
-      team_info(most_accurate)["team_name"]
+      games_team_by_team = game_stats_by_team_id(season)
+      goals_by_team_array = games_team_by_team.map {|key, game| game.map {|stat| stat.goals.to_f}}
+      total_goals = goals_by_team_array.map {|goal| goal.sum}
+      shots_by_team_array = games_team_by_team.map {|key, game| game.map {|stat| stat.shots.to_f}}
+      total_shots = shots_by_team_array.map {|shot| shot.sum}
+
+      team_id_array = games_teams_in_season.map {|game| game.team_id}.uniq
+
+      ratios_array = total_goals.zip(total_shots).map {|item| item.inject(:/)}
+      ratios_by_team = Hash[team_id_array.zip(ratios_array)]
+      max_ratio = ratios_by_team.key(ratios_by_team.values.max)
+
+    team_name_id(max_ratio)
     end
 
     def least_accurate_team(season)
-      least_accurate = nil
-      worst_accuracy = 0.00
       games_teams_in_season = games_played_in_season(season)
-      games_team_by_team = games_teams_in_season.group_by{|game_team| game_team.team_id}
-      games_team_by_team.each do |team_id, game_teams|
-        team_accuracy = accuracy(game_teams)
-        if team_accuracy <= worst_accuracy.to_f
-          (worst_accuracy = team_accuracy) && (least_accurate = team_id)
-        end
-      end
-      team_info(worst_accuracy)["team_name"]
+      games_team_by_team = game_stats_by_team_id(season)
+      goals_by_team_array = games_team_by_team.map {|key, game| game.map {|stat| stat.goals.to_f}}
+      total_goals = goals_by_team_array.map {|goal| goal.sum}
+      shots_by_team_array = games_team_by_team.map {|key, game| game.map {|stat| stat.shots.to_f}}
+      total_shots = shots_by_team_array.map {|shot| shot.sum}
+
+      team_id_array = games_teams_in_season.map {|game| game.team_id}.uniq
+
+      ratios_array = total_goals.zip(total_shots).map {|item| item.inject(:/)}
+      ratios_by_team = Hash[team_id_array.zip(ratios_array)]
+      min_ratio = ratios_by_team.key(ratios_by_team.values.min)
+
+    team_name_id(min_ratio)
     end
 
     def team_name_id(team_id)

@@ -21,18 +21,18 @@ RSpec.describe SeasonStats do
     # 'SeasonStats module methods'
      describe '#winningest_coach' do
        it 'returns the name of the Coach with the best win percentage for the season'
-       expect(stat_tracker.winningest_coach("20122013")).to eq("Claude Julien")
+       expect(stat_tracker.winningest_coach("20122013")).to eq("Alain Vigneault")
       end
 
     describe '#worst_coach' do
       it 'returns the name of the Coach with the worst win percentage for the season' do
-        expect(stat_tracker.worst_coach("20122013")).to eq("John Tortrella")
+        expect(stat_tracker.worst_coach("20122013")).to eq("Martin Raymond")
       end
     end
 
     describe '#most_accurate_team' do
     it 'returns the name of the Team with the best ration of shots to goals for the season' do
-      expect(stat_tracker.most_accurate_team("20122013")).to eq("LA Galaxy")
+      expect(stat_tracker.most_accurate_team("20122013")).to eq("DC United")
       end
     end
 
@@ -52,12 +52,12 @@ RSpec.describe SeasonStats do
 
     describe '#most_tackles' do
       it 'returns the name of the Team with the most tackles in the season' do
-        expect(stat_tracker.most_tackles("20122013")).to eq("FC Dallas")
+        expect(stat_tracker.most_tackles("20122013")).to eq("FC Cincinatti")
       end
     end
     describe '#fewest_tackles' do
       it 'returns the name of the Team with the most tackles in the season' do
-        expect(stat_tracker.fewest_tackles("20122013")).to eq("LA Gala")
+        expect(stat_tracker.fewest_tackles("20122013")).to eq("Atlanta United")
       end
     end
   end
