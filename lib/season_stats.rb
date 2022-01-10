@@ -1,5 +1,4 @@
 require 'csv'
-# require './lib/game_teams.rb'
 module SeasonStats
 
   def game_teams_by_coaches(season)
@@ -71,4 +70,6 @@ module SeasonStats
           team_id = team_tackles_totals.key(team_tackles_totals.values.min)
           team_name_from_id(team_id)
         end
+      end
+    end
   end
