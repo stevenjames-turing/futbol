@@ -26,5 +26,7 @@ p stat_tracker.lowest_scoring_home_team
 p stat_tracker.team_info("5")
 p stat_tracker.best_season("6")
 p stat_tracker.worst_season("6")
+p stat_tracker.favorite_opponent("18")
+p stat_tracker.rival("18")
 
-require 'pry'; binding.pry
+# require 'pry'; binding.pry
