@@ -65,18 +65,18 @@ module SeasonStats
     end
 
     def team_name_id(team_id)
-      @teams_data.select {|team| team.team_id == team_id}.map {|team| team.team_name}[0]
+      @teams_data.select {|team| team.team_id == team_id}.map {|team| team.teamname}[0]
     end
 
     def most_tackles(season)
       team_tackles_totals = game_stats_by_team_id(season).transform_values{|values| values.map{|game_teams| game_teams.tackles.to_i}.inject(:+)}
       team_id = team_tackles_totals.key(team_tackles_totals.values.max)
-      team_name_id(team_id)["team_name"]
+      team_name_id(team_id)
     end
 
     def fewest_tackles(season)
       team_tackles_totals = game_stats_by_team_id(season).transform_values{|values| values.map{|game_teams| game_teams.tackles.to_i}.inject(:+)}
       team_id = team_tackles_totals.key(team_tackles_totals.values.min)
-      team_name_id(team_id)["team_name"]
+      team_name_id(team_id)
     end
   end

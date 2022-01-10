@@ -36,7 +36,7 @@ p stat_tracker.most_accurate_team("20132014")
 # p stat_tracker.most_accurate_team("20142015")
 # p stat_tracker.least_accurate_team("20122013")
 p stat_tracker.most_tackles("20122013")
-# p stat_tracker.fewest_tackles("20122013")
+p stat_tracker.fewest_tackles("20122013")
 
 
 # require 'pry'; binding.pry
