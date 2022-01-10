@@ -2,7 +2,6 @@ require 'simplecov'
 SimpleCov.start
 require './lib/stat_tracker'
 require './lib/team_statistics'
-# require './lib/team'
 
 RSpec.describe TeamStatistics do
   before(:all) do
@@ -31,7 +30,30 @@ RSpec.describe TeamStatistics do
   end
 
   it '#best_season' do
-
     expect(@stat_tracker.best_season("6")).to eq("20122013")
+  end
+
+  it '#worst_season' do
+    expect(@stat_tracker.worst_season())
+  end
+
+  end
+  it '#average_win_percentage' do
+    expect(@stat_tracker.average_win_percentage("16")).to eq(50.0)
+  end
+  it '#most_goals_scored' do
+    expect(@stat_tracker.most_goals_scored("16")).to eq(2)
+  end
+
+  it '#fewest_goals_scored' do
+    expect(@stat_tracker.fewest_goals_scored("5")).to eq(0)
+  end
+
+  it '#favorite_opponent' do
+    expect(@stat_tracker.favorite_opponent("6")).to eq("Houston Dynamo")
+  end
+
+  it 'has a #rival team' do
+    expect(@stat_tracker.rival("3")).to eq("FC Dallas")
   end
 end
