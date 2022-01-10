@@ -77,7 +77,7 @@ module TeamStatistics
     opponent_name = opponents.max_by do |x|
       x.size
     end
-    team_info(opponent_name)[:team_name]
+    team_info(opponent_name)["team_name"]
   end
 
   def rival(team_id)
@@ -96,7 +96,7 @@ module TeamStatistics
     rival_name = rivals.max_by do |x|
       x.size
     end
-    team_info(rival_name)[:team_name]
+    team_info(rival_name)["team_name"]
   end
 
   private
