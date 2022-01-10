@@ -18,7 +18,7 @@ module SeasonStats
     games_by_season = @games_data.group_by {|game| game.season}
     games_in_season = games_by_season.keep_if {|key, value| key == season}
     season_game_ids = games_in_season.map {|season, games| games.map {|game| game.game_id}}.flatten
-    @game_teams.find_all{|games| season_game_ids.include?(games.game_id)}
+    @game_teams_data.find_all{|games| season_game_ids.include?(games.game_id)}
   end
 
   def game_stats_by_team_id(season)
