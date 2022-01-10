@@ -26,8 +26,9 @@ p stat_tracker.lowest_scoring_home_team
 p stat_tracker.team_info("5")
 p stat_tracker.best_season("6")
 p stat_tracker.worst_season("6")
-p stat_tracker.winningest_coach("20122013")
-p stat_tracker.worst_coach("20122013")
+# p stat_tracker.winningest_coach("20122013")
+# p stat_tracker.worst_coach("20122013")
+
 p stat_tracker.most_accurate_team("20122013")
 p stat_tracker.least_accurate_team("20122013")
 p stat_tracker.most_tackles("20122013")

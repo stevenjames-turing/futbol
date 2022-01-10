@@ -22,7 +22,7 @@ RSpec.describe TeamStatistics do
     @stat_tracker = StatTracker.from_csv(locations)
   end
 
-  xit '#team_info' do
+  it '#team_info' do
     info = {
       "team_id" => "26",
       "franchise_id" => "14",
@@ -33,32 +33,32 @@ RSpec.describe TeamStatistics do
     expect(@stat_tracker.team_info("26")).to eq(info)
   end
 
-  xit '#best_season' do
+  it '#best_season' do
     expect(@stat_tracker.best_season("6")).to eq("20122013")
   end
 
-  xit '#worst_season' do
+  it '#worst_season' do
     expect(@stat_tracker.worst_season("5")).to eq("20122013")
   end
 
-  xit '#average_win_percentage' do
+  it '#average_win_percentage' do
     expect(@stat_tracker.average_win_percentage("16")).to eq(0.50)
   end
-  xit '#most_goals_scored' do
+  it '#most_goals_scored' do
     expect(@stat_tracker.most_goals_scored("16")).to eq(2)
   end
 
-  xit '#fewest_goals_scored' do
+  it '#fewest_goals_scored' do
     expect(@stat_tracker.fewest_goals_scored("5")).to eq(0)
   end
 
   it '#favorite_opponent' do
-    # expect(@stat_tracker.favorite_opponent("6")).to eq("Houston Dynamo")
-    expect(@stat_tracker.favorite_opponent("18")).to eq "DC United"
+    expect(@stat_tracker.favorite_opponent("6")).to eq("Houston Dynamo")
+    # expect(@stat_tracker.favorite_opponent("18")).to eq "DC United"
   end
 
-  xit 'has a #rival team' do
-    # expect(@stat_tracker.rival("3")).to eq("FC Dallas")
-    expect(@stat_tracker.rival("18")).to eq("Houston Dash").or(eq("LA Galaxy"))
+  it 'has a #rival team' do
+    expect(@stat_tracker.rival("3")).to eq("FC Dallas")
+    # expect(@stat_tracker.rival("18")).to eq("Houston Dash").or(eq("LA Galaxy"))
   end
 end
