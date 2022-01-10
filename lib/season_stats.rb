@@ -61,7 +61,7 @@ module SeasonStats
 
     def least_accurate_team(season)
       least_accurate = nil
-      worst_accuracy = .00
+      worst_accuracy = 1.00
       games_teams_in_season = games_played_in_season(season)
       games_team_by_team = games_teams_in_season.group_by{|game_team| game_team.team_id}
       games_team_by_team.each do |team_id, game_teams|
@@ -70,7 +70,7 @@ module SeasonStats
           (worst_accuracy = team_accuracy) && (least_accurate = team_id)
         end
       end
-      team_info(worst_accuracy)["team_name"]
+      team_info(least_accurate)["team_name"]
     end
 
     def most_tackles(season)
