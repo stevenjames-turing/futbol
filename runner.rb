@@ -34,4 +34,8 @@ p stat_tracker.most_tackles("20122013")
 p stat_tracker.fewest_tackles("20122013")
 
 
-require 'pry'; binding.pry
+p stat_tracker.favorite_opponent("18")
+p stat_tracker.rival("18")
+
+
+# require 'pry'; binding.pry
