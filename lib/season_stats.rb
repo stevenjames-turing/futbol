@@ -52,7 +52,7 @@ module SeasonStats
 
     def least_accurate_team(season)
       least_accurate = nil
-      worst_accuracy = .00
+      worst_accuracy = 0.00
       games_teams_in_season = games_played_in_season(season)
       games_team_by_team = games_teams_in_season.group_by{|game_team| game_team.team_id}
       games_team_by_team.each do |team_id, game_teams|
@@ -64,15 +64,19 @@ module SeasonStats
       team_info(worst_accuracy)["team_name"]
     end
 
+    def team_name_id(team_id)
+      @teams_data.select {|team| team.team_id == team_id}.map {|team| team.team_name}[0]
+    end
+
     def most_tackles(season)
       team_tackles_totals = game_stats_by_team_id(season).transform_values{|values| values.map{|game_teams| game_teams.tackles.to_i}.inject(:+)}
       team_id = team_tackles_totals.key(team_tackles_totals.values.max)
-      team_name(team_id)
+      team_name_id(team_id)["team_name"]
     end
 
     def fewest_tackles(season)
       team_tackles_totals = game_stats_by_team_id(season).transform_values{|values| values.map{|game_teams| game_teams.tackles.to_i}.inject(:+)}
       team_id = team_tackles_totals.key(team_tackles_totals.values.min)
-      team_name(team_id)
+      team_name_id(team_id)["team_name"]
     end
   end
