@@ -46,7 +46,7 @@ module TeamStatistics
     total_games = @game_teams_data.count do |game|
       game.team_id == team_id
     end
-    (total_wins.to_f / total_games) * 100
+    (total_wins.to_f / total_games).round(2)
   end
 
   def most_goals_scored(team_id)
@@ -62,10 +62,30 @@ module TeamStatistics
   end
 
   def favorite_opponent(team_id)
+    total_games = @games_data.select do |game|
+      game.home_team_id == team_id || #&& game.home_goals > game.away_goals ||
+      game.away_team_id == team_id #&& game.away_goals > game.home_goals
+    end
+
+    new_hash = {}
+    total_games.each do |game|
+      if game.home_team_id == team_id && new_hash[game.away_team_id].nil?
+        new_hash[game.away_team_id] = [0,0]
+      elsif game.away_team_id == team_id && new_hash[game.home_team_id].nil?
+        new_hash[game.home_team_id] = [0,0]
+      end
+    end
+
     games_won = @games_data.select do |game|
       game.home_team_id == team_id && game.home_goals > game.away_goals ||
       game.away_team_id == team_id && game.away_goals > game.home_goals
     end
+
+  
+    require "pry"; binding.pry
+    # += 1 for each game into index[0]
+    # += 1 for each win into index[1]
+
     opponents = []
     games_won.select do |game|
       if game.home_team_id == team_id
