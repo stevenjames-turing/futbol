@@ -108,7 +108,7 @@ module TeamStatistics
     favorite_opponent = nil
     home_game_wins(team_id, opponents)
     away_game_wins(team_id, opponents)
-    opponents.each_pair do |id, stats|
+    opponents.each_pair do |id, stats| #break off into helper method 
       stats[:win_percentage] = stats[:wins].fdiv(stats[:games_played])
       if stats[:win_percentage] > best_win_percentage
         (best_win_percentage = stats[:win_percentage]) && (favorite_opponent = id)
