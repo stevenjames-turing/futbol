@@ -5,13 +5,13 @@ require './lib/team_statistics'
 
 RSpec.describe TeamStatistics do
   before(:all) do
-    # game_path = './data/test_games.csv'
-    # team_path = './data/test_teams.csv'
-    # game_teams_path = './data/test_game_teams.csv'
+    game_path = './data/test_games.csv'
+    team_path = './data/test_teams.csv'
+    game_teams_path = './data/test_game_teams.csv'
 
-    game_path = './data/games.csv'
-    team_path = './data/teams.csv'
-    game_teams_path = './data/game_teams.csv'
+    # game_path = './data/games.csv'
+    # team_path = './data/teams.csv'
+    # game_teams_path = './data/game_teams.csv'
 
     locations = {
       games: game_path,
@@ -54,11 +54,9 @@ RSpec.describe TeamStatistics do
 
   it '#favorite_opponent' do
     expect(@stat_tracker.favorite_opponent("6")).to eq("Houston Dynamo")
-    # expect(@stat_tracker.favorite_opponent("18")).to eq "DC United"
   end
 
   it 'has a #rival team' do
     expect(@stat_tracker.rival("3")).to eq("FC Dallas")
-    # expect(@stat_tracker.rival("18")).to eq("Houston Dash").or(eq("LA Galaxy"))
   end
 end
