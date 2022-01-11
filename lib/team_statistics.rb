@@ -15,32 +15,11 @@ module TeamStatistics
 
   def best_season(team_id)
     this_season(team_id, "LOSS")
-    # seasons = []
-    # wins = find_outcome(team_id, "LOSS")
-    # wins.each do |win|
-    #   @games_data.each do |game|
-    #     if (game.game_id == win.game_id)
-    #       seasons << game.season
-    #     end
-    #   end
-    # end
-    # best_season = seasons.max_by{|season| seasons.count(season)}
   end
 
   def worst_season(team_id)
     this_season(team_id, "WIN")
-    # seasons = []
-    # wins = find_outcome(team_id, "WIN")
-    # wins.each do |win|
-    #   @games_data.each do |game|
-    #     if (game.game_id == win.game_id)
-    #       seasons << game.season
-    #     end
-    #   end
-    # end
-    # worst_season = seasons.max_by{|season| seasons.count(season)}
   end
-
 
   def average_win_percentage(team_id)
     total_wins = @game_teams_data.count do |game|
@@ -108,7 +87,7 @@ module TeamStatistics
     favorite_opponent = nil
     home_game_wins(team_id, opponents)
     away_game_wins(team_id, opponents)
-    opponents.each_pair do |id, stats| #break off into helper method 
+    opponents.each_pair do |id, stats| #break off into helper method
       stats[:win_percentage] = stats[:wins].fdiv(stats[:games_played])
       if stats[:win_percentage] > best_win_percentage
         (best_win_percentage = stats[:win_percentage]) && (favorite_opponent = id)
@@ -121,44 +100,8 @@ module TeamStatistics
     opponents = {}
     worst_win_percentage = 1.00
     rival = nil
-    @games_data.each do |game|
-      if (game.home_team_id == team_id) && (!opponents.has_key?(game.away_team_id))
-        opponents[game.away_team_id] = {wins: 0, losses: 0, ties: 0, games_played: 0, win_percentage: 0}
-        if game.home_goals > game.away_goals
-          (opponents[game.away_team_id][:wins] += 1) && opponents[game.away_team_id][:games_played] += 1
-        elsif game.home_goals == game.away_goals
-          (opponents[game.away_team_id][:ties] += 1) && opponents[game.away_team_id][:games_played] += 1
-        elsif game.home_goals < game.away_goals
-          (opponents[game.away_team_id][:losses] += 1) && opponents[game.away_team_id][:games_played] += 1
-        end
-      elsif (game.home_team_id == team_id) && (opponents.has_key?(game.away_team_id))
-        if game.home_goals > game.away_goals
-          (opponents[game.away_team_id][:wins] += 1) && opponents[game.away_team_id][:games_played] += 1
-        elsif game.home_goals == game.away_goals
-          (opponents[game.away_team_id][:ties] += 1) && opponents[game.away_team_id][:games_played] += 1
-        elsif game.home_goals < game.away_goals
-          (opponents[game.away_team_id][:losses] += 1) && opponents[game.away_team_id][:games_played] += 1
-        end
-      end
-      if (game.away_team_id == team_id) && (!opponents.has_key?(game.home_team_id))
-        opponents[game.home_team_id] = {wins: 0, losses: 0, ties: 0, games_played: 0, win_percentage: 0}
-        if game.away_goals > game.home_goals
-          (opponents[game.home_team_id][:wins] += 1) && opponents[game.home_team_id][:games_played] += 1
-      elsif game.away_goals == game.home_goals
-          (opponents[game.home_team_id][:ties] += 1) && opponents[game.home_team_id][:games_played] += 1
-        elsif game.away_goals < game.home_goals
-          (opponents[game.home_team_id][:losses] += 1) && opponents[game.home_team_id][:games_played] += 1
-        end
-      elsif (game.home_team_id == team_id) && (opponents.has_key?(game.home_team_id))
-        if game.away_goals > game.home_goals
-          (opponents[game.home_team_id][:wins] += 1) && opponents[game.home_team_id][:games_played] += 1
-        elsif game.away_goals == game.home_goals
-          (opponents[game.home_team_id][:ties] += 1) && opponents[game.home_team_id][:games_played] += 1
-        elsif game.away_goals < game.home_goals
-          (opponents[game.home_team_id][:losses] += 1) && opponents[game.home_team_id][:games_played] += 1
-        end
-      end
-    end
+    home_game_wins(team_id, opponents)
+    away_game_wins(team_id, opponents)
     opponents.each_pair do |id, stats|
       stats[:win_percentage] = stats[:wins].fdiv(stats[:games_played])
       if stats[:win_percentage] < worst_win_percentage
