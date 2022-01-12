@@ -1,5 +1,4 @@
 module TeamStatistics
-
   def team_info(team_id)
     team_info_full = @teams_data.find do |row|
       row.team_id == team_id
@@ -47,18 +46,18 @@ module TeamStatistics
     @games_data.each do |game|
       if (game.home_team_id == team_id) && (!opponents.has_key?(game.away_team_id))
         opponents[game.away_team_id] = {wins: 0, games_played: 0, win_percentage: 0}
-        if game.home_goals > game.away_goals
-          (opponents[game.away_team_id][:wins] += 1) && opponents[game.away_team_id][:games_played] += 1
-        else
-          opponents[game.away_team_id][:games_played] += 1
-        end
+        home_goals(game, opponents)
       elsif (game.home_team_id == team_id) && (opponents.has_key?(game.away_team_id))
-        if game.home_goals > game.away_goals
-          (opponents[game.away_team_id][:wins] += 1) && opponents[game.away_team_id][:games_played] += 1
-        else
-          opponents[game.away_team_id][:games_played] += 1
-        end
+        home_goals(game, opponents)
       end
+    end
+  end
+
+  def home_goals(game, opponents)
+    if game.home_goals > game.away_goals
+      (opponents[game.away_team_id][:wins] += 1) && opponents[game.away_team_id][:games_played] += 1
+    else
+      opponents[game.away_team_id][:games_played] += 1
     end
   end
 
@@ -66,18 +65,18 @@ module TeamStatistics
     @games_data.each do |game|
       if (game.away_team_id == team_id) && (!opponents.has_key?(game.home_team_id))
         opponents[game.home_team_id] = {wins: 0, games_played: 0, win_percentage: 0}
-        if game.away_goals > game.home_goals
-          (opponents[game.home_team_id][:wins] += 1) && opponents[game.home_team_id][:games_played] += 1
-        else
-          opponents[game.home_team_id][:games_played] += 1
-        end
+          away_goals(game, opponents)
       elsif (game.away_team_id == team_id) && (opponents.has_key?(game.home_team_id))
-        if game.away_goals > game.home_goals
-          (opponents[game.home_team_id][:wins] += 1) && opponents[game.home_team_id][:games_played] += 1
-        else
-          opponents[game.home_team_id][:games_played] += 1
-        end
+        away_goals(game, opponents)
       end
+    end
+  end
+
+  def away_goals(game, opponents)
+    if game.away_goals > game.home_goals
+      (opponents[game.home_team_id][:wins] += 1) && opponents[game.home_team_id][:games_played] += 1
+    else
+      opponents[game.home_team_id][:games_played] += 1
     end
   end
 
