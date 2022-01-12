@@ -63,7 +63,7 @@ module GameStatistics
     return percent_away_wins.round(2)
   end
 
-  def count_of_games_by_season 
+  def count_of_games_by_season
     count_of_games_by_season = {}
     @games_data.each do |row|
       count_of_games_by_season[row.season] = 0
