@@ -44,12 +44,17 @@ RSpec.describe TeamStatistics do
   it '#average_win_percentage' do
     expect(@stat_tracker.average_win_percentage("16")).to eq(0.50)
   end
+
   it '#most_goals_scored' do
     expect(@stat_tracker.most_goals_scored("16")).to eq(2)
   end
 
   it '#fewest_goals_scored' do
     expect(@stat_tracker.fewest_goals_scored("5")).to eq(0)
+  end
+
+  xit '#home_game_wins' do
+    expect(@stat_tracker.home_game_wins("3", "6")).to eq(0)
   end
 
   it '#favorite_opponent' do
