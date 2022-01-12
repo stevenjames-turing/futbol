@@ -86,7 +86,7 @@ module TeamStatistics
     favorite_opponent = nil
     home_game_wins(team_id, opponents)
     away_game_wins(team_id, opponents)
-    opponents.each_pair do |id, stats| #break off into helper method
+    opponents.each_pair do |id, stats|
       stats[:win_percentage] = stats[:wins].fdiv(stats[:games_played])
       if stats[:win_percentage] > best_win_percentage
         (best_win_percentage = stats[:win_percentage]) && (favorite_opponent = id)
@@ -110,10 +110,9 @@ module TeamStatistics
     team_info(rival)["team_name"]
   end
 
-  private
   def find_outcome(team_id, desired_result)
     @game_teams_data.select do |x|
-      (x.team_id == team_id) && (x.result != desired_result) #|| (x.result == "TIE"))
+      (x.team_id == team_id) && (x.result != desired_result)
     end
   end
 

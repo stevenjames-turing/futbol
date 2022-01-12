@@ -51,7 +51,7 @@ RSpec.describe GameTeam do
     expect(game_team.result).to eq("WIN")
     expect(game_team.settled_in).to eq("OT")
     expect(game_team.head_coach).to eq("Claude Julien")
-    expect(game_team.goals).to eq("3")
+    expect(game_team.goals).to eq(3)
     expect(game_team.shots).to eq("12")
     expect(game_team.tackles).to eq("51")
     expect(game_team.pim).to eq("6")
