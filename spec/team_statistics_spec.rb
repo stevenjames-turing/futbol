@@ -53,10 +53,6 @@ RSpec.describe TeamStatistics do
     expect(@stat_tracker.fewest_goals_scored("5")).to eq(0)
   end
 
-  xit '#home_game_wins' do
-    expect(@stat_tracker.home_game_wins("3", "6")).to eq(0)
-  end
-
   it '#favorite_opponent' do
     expect(@stat_tracker.favorite_opponent("6")).to eq("Houston Dynamo")
   end
