@@ -28,12 +28,26 @@ RSpec.describe StatTracker do
     expect(@stat_tracker.count_of_teams).to eq(32)
   end
 
-  it 'can create a hash with team_id as keys and a nested hash with goal data' do
-    expected_data_as_keys = [:team_name, :goals_while_away, :goals_while_home, :total_goals, :away_games_played, :home_games_played, :total_games_played, :avg_goals_per_game_away, :avg_goals_per_game_home, :avg_goals_per_game_total]
-    expect(@stat_tracker.goal_data_by_team.keys.count).to eq(32)
-    expect(@stat_tracker.goal_data_by_team.values_at("3")[0].keys).to eq(expected_data_as_keys)
+  it 'initializes with an empty hash as @goals_per_team data' do
+    expect(stat_tracker.goals_per_team).to eq({})
   end
 
+  it 'can add home team goal data to goals_per_team hash' do
+    stat_tracker.goal_data_by_home_team
+    expect(stat_tracker.goals_per_team.values).to_not eq nil
+  end
+
+  it 'can add away team goal data to goals_per_team hash' do
+    stat_tracker.goal_data_by_away_team
+    expect(stat_tracker.goals_per_team.values).to_not eq nil
+  end
+
+  it 'can create a hash with team_id as keys and a nested hash with goal data' do
+    expected_data_as_keys = [:goals_while_away, :goals_while_home, :total_goals, :away_games_played, :home_games_played, :total_games_played, :team_name, :avg_goals_per_game_total, :avg_goals_per_game_away, :avg_goals_per_game_home]
+    expect(stat_tracker.goal_data_by_team.keys.count).to eq(32)
+    expect(stat_tracker.goal_data_by_team.values_at("3")[0].keys).to eq(expected_data_as_keys)
+  end
+    
   it 'can return the name of the team with the HIGHEST average number of goals scored per game across all seasons' do
     expect(@stat_tracker.best_offense).to eq("Reign FC")
   end
