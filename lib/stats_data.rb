@@ -1,7 +1,7 @@
 require 'csv'
 module StatsData
 
-  attr_reader :games_data, :teams_data, :game_teams_data
+  attr_reader :games_data, :teams_data, :game_teams_data, :goals_per_team
 
   def initialize(file_paths)
     # @games_data = file_paths[:games]
@@ -11,6 +11,7 @@ module StatsData
     @teams_data = make_objects(file_paths[:teams], Team)
     # @game_teams_data = file_paths[:game_teams]
     @game_teams_data = make_objects(file_paths[:game_teams], GameTeam)
+    @goals_per_team = Hash.new{0}
   end
 
   def make_objects(filenames, object)
