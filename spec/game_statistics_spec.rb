@@ -19,6 +19,11 @@ RSpec.describe GameStatistics do
     expect(@stat_tracker).to be_instance_of(StatTracker)
   end
 
+  it "finds total games" do
+
+  expect(@stat_tracker.total_games).to eq(7441)
+  end
+
   it "finds highest total score" do
 
   expect(@stat_tracker.highest_total_score).to be_instance_of(Integer)
